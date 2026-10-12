@@ -1,0 +1,11 @@
+[
+  {"kind": "found", "title": "Black HP laptop charger", "description": "65W HP charger with a frayed cable near the plug. Left on a desk in Lab 3.", "category": "electronics", "location": "Labs", "days_ago": 1, "manage_token": "demo-token-1",
+   "claims": [{"claimant_name": "Sample Student A", "contact": "student.a@example.com", "details": "My charger has a strip of blue tape wrapped near the plug end."}]},
+  {"kind": "lost", "title": "Student ID card in red holder", "description": "ID card inside a red plastic holder with a lanyard. Probably lost during lunch.", "category": "id-card", "location": "Cafeteria", "days_ago": 2, "manage_token": "demo-token-2"},
+  {"kind": "found", "title": "Steel water bottle", "description": "Silver steel bottle, 1 litre, with a cat sticker on the side.", "category": "bottle", "location": "Library", "days_ago": 0, "manage_token": "demo-token-3"},
+  {"kind": "found", "title": "Set of three keys", "description": "Three keys on a ring with a small football keychain.", "category": "keys", "location": "Sports Complex", "days_ago": 3, "manage_token": "demo-token-4"},
+  {"kind": "lost", "title": "Data Structures textbook", "description": "Data Structures and Algorithms textbook with handwritten notes in pencil on the margins.", "category": "books", "location": "Academic Block", "days_ago": 5, "manage_token": "demo-token-5"},
+  {"kind": "found", "title": "Grey hoodie", "description": "Grey zip hoodie, size M, left on the auditorium seats after the evening event.", "category": "clothing", "location": "Auditorium", "days_ago": 4, "manage_token": "demo-token-6"},
+  {"kind": "lost", "title": "Wireless earbuds case", "description": "White earbuds charging case, no earbuds inside. Lost near the bus stop.", "category": "electronics", "location": "Bus Stop", "days_ago": 1, "manage_token": "demo-token-7"},
+  {"kind": "found", "title": "Brown leather wallet", "description": "Brown wallet, no cash. Will hand over only after the owner describes the contents.", "category": "wallet", "location": "Parking", "days_ago": 2, "manage_token": "demo-token-8"}
+]

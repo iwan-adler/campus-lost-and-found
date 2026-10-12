@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Lost &amp; Found</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <h1>Campus Lost &amp; Found</h1>
+      <button id="report-btn" class="primary">Report an item</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="search-form" class="filters" role="search">
+      <input id="q" name="q" type="search" placeholder="Search e.g. charger, red, keys…" maxlength="100" aria-label="Keywords">
+      <select id="f-kind" name="kind" aria-label="Lost or found">
+        <option value="">Lost &amp; found</option>
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+      </select>
+      <select id="f-category" name="category" aria-label="Category"><option value="">All categories</option></select>
+      <select id="f-location" name="location" aria-label="Location"><option value="">All locations</option></select>
+      <select id="f-status" name="status" aria-label="Status">
+        <option value="open">Open</option>
+        <option value="claimed">Claimed</option>
+        <option value="returned">Returned</option>
+        <option value="">Any status</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+
+    <p id="result-count" class="muted" aria-live="polite"></p>
+    <ul id="results" class="cards"></ul>
+    <div class="center"><button id="more-btn" hidden>Load more</button></div>
+  </main>
+
+  <!-- Item details, claim form and owner tools -->
+  <dialog id="detail-dialog">
+    <form method="dialog" class="close-row"><button aria-label="Close">✕</button></form>
+    <div id="detail"></div>
+
+    <section id="claim-section" hidden>
+      <h3>Is this yours?</h3>
+      <p class="muted small">Your contact details are only shown to the person who found it.</p>
+      <form id="claim-form" class="stack">
+        <label>Your name <input name="claimant_name" required minlength="2" maxlength="100"></label>
+        <label>How can they reach you? <input name="contact" required minlength="3" maxlength="100" placeholder="Email or phone"></label>
+        <label>Proof it's yours <textarea name="details" required minlength="10" maxlength="1000" rows="3"
+          placeholder="Describe something only the owner would know"></textarea></label>
+        <button type="submit" class="primary">Submit claim</button>
+      </form>
+    </section>
+
+    <section id="manage-section">
+      <details id="manage-details">
+        <summary>I reported this item</summary>
+        <form id="token-form" class="inline">
+          <input name="token" placeholder="Manage token" required aria-label="Manage token" autocomplete="off">
+          <button type="submit">Unlock</button>
+        </form>
+        <div id="manage-tools" hidden>
+          <p class="small">Change status:
+            <button data-status="open">Open</button>
+            <button data-status="claimed">Claimed</button>
+            <button data-status="returned">Returned</button>
+          </p>
+          <h4>Claims</h4>
+          <ul id="claims" class="claims"></ul>
+        </div>
+      </details>
+    </section>
+    <p id="detail-msg" class="msg" role="status"></p>
+  </dialog>
+
+  <!-- Report form -->
+  <dialog id="report-dialog">
+    <form method="dialog" class="close-row"><button aria-label="Close">✕</button></form>
+    <h2>Report an item</h2>
+    <form id="report-form" class="stack">
+      <fieldset class="segmented">
+        <label><input type="radio" name="kind" value="lost" required> I lost something</label>
+        <label><input type="radio" name="kind" value="found"> I found something</label>
+      </fieldset>
+      <label>Title <input name="title" required minlength="3" maxlength="100" placeholder="e.g. Black HP laptop charger"></label>
+      <label>Description <textarea name="description" required minlength="10" maxlength="1000" rows="3"
+        placeholder="Colour, brand, marks… For found items, hold back one detail so you can verify the owner."></textarea></label>
+      <div class="row">
+        <label>Category <select name="category" id="r-category" required></select></label>
+        <label>Location <select name="location" id="r-location" required></select></label>
+        <label>Date <input name="event_date" type="date" required></label>
+      </div>
+      <p class="muted small">Don't include phone numbers or emails here. Listings are public.</p>
+      <button type="submit" class="primary">Publish listing</button>
+    </form>
+    <div id="report-done" hidden>
+      <h3>Listing published</h3>
+      <p>Your manage token is below. It is shown <strong>only once</strong>. You need it to see claims and update the status. This browser has saved it for you too.</p>
+      <p class="token-row"><code id="new-token"></code> <button id="copy-token">Copy</button></p>
+      <button id="view-new" class="primary">View my listing</button>
+    </div>
+    <p id="report-msg" class="msg error" role="alert"></p>
+  </dialog>
+
+  <template id="card-tpl">
+    <li class="card" tabindex="0">
+      <div class="badges"><span class="badge kind"></span><span class="badge status"></span></div>
+      <h3 class="title"></h3>
+      <p class="meta muted small"></p>
+      <p class="claims-count small"></p>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

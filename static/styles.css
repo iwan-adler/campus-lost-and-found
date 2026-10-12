@@ -1,0 +1,116 @@
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1c2430;
+  --muted: #5b6573;
+  --border: #dfe3e8;
+  --accent: #2557d6;
+  --accent-text: #ffffff;
+  --lost: #b4441f;
+  --lost-bg: #fcebe5;
+  --found: #1d7a46;
+  --found-bg: #e3f4ea;
+  --neutral-bg: #eceff3;
+  --error: #b3261e;
+  --ok: #1d7a46;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12161c;
+    --surface: #1b2129;
+    --text: #e6e9ee;
+    --muted: #9aa4b2;
+    --border: #2d3540;
+    --accent: #6e95ff;
+    --accent-text: #0d1117;
+    --lost: #ff9d7a;
+    --lost-bg: #3a2119;
+    --found: #79d9a0;
+    --found-bg: #173023;
+    --neutral-bg: #262d36;
+    --error: #ff8a80;
+    --ok: #79d9a0;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+.topbar { background: var(--surface); border-bottom: 1px solid var(--border); }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; }
+.topbar h1 { font-size: 1.25rem; margin: 0; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+button { cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
+button[aria-pressed="true"] { background: var(--neutral-bg); font-weight: 600; }
+textarea { resize: vertical; width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 8px; }
+.filters input[type="search"] { flex: 1 1 220px; min-width: 0; }
+.filters select { flex: 0 1 auto; }
+
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+.center { text-align: center; margin: 16px 0 40px; }
+
+.cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px;
+         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; cursor: pointer; }
+.card:hover { border-color: var(--accent); }
+.card .title { font-size: 1rem; margin: 8px 0 4px; overflow-wrap: anywhere; }
+.card p { margin: 0; }
+
+.badges { display: flex; gap: 6px; }
+.badge { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+         padding: 2px 8px; border-radius: 999px; background: var(--neutral-bg); }
+.badge.lost { color: var(--lost); background: var(--lost-bg); }
+.badge.found { color: var(--found); background: var(--found-bg); }
+
+dialog { width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 32px); border: 1px solid var(--border);
+         border-radius: 14px; padding: 20px; background: var(--surface); color: var(--text); }
+dialog::backdrop { background: rgb(0 0 0 / 0.45); }
+.close-row { float: right; margin: -8px -8px 0 0; }
+.close-row button { border: none; background: none; font-size: 1.1rem; }
+dialog h2 { margin-top: 0; }
+dialog section { border-top: 1px solid var(--border); margin-top: 16px; padding-top: 12px; }
+#detail .desc { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.stack { display: grid; gap: 12px; }
+.stack label { display: grid; gap: 4px; font-size: 0.9rem; font-weight: 500; }
+.row { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.inline { display: flex; gap: 8px; margin: 8px 0; }
+.inline input { flex: 1; min-width: 0; }
+.segmented { border: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 16px; }
+.segmented label { display: flex; gap: 6px; align-items: center; font-weight: 500; }
+
+.claims { list-style: none; padding: 0; display: grid; gap: 8px; }
+.claims li { border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
+.claims p { margin: 2px 0; overflow-wrap: anywhere; }
+
+.token-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+code { background: var(--neutral-bg); padding: 4px 8px; border-radius: 6px; overflow-wrap: anywhere; }
+
+.msg { min-height: 1.5em; margin: 8px 0 0; }
+.msg.error { color: var(--error); }
+.msg.ok { color: var(--ok); }
+summary { cursor: pointer; font-weight: 500; }
