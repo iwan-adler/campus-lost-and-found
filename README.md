@@ -8,6 +8,21 @@ On most campuses, lost items end up in scattered WhatsApp groups or at a securit
 
 **Who would use it:** students and staff who lose or find things on campus. The design keeps contact details private: they're never shown publicly.
 
+## Screenshots
+
+Captured from the running app with the bundled sample data (`python -m app.seed`). The page follows the system light/dark setting; these are in dark mode.
+
+<table>
+  <tr>
+    <td width="68%"><img src="docs/screenshots/desktop.png" alt="Item listings with search box and filters for kind, category, location and status"></td>
+    <td><img src="docs/screenshots/mobile.png" alt="The same page at phone width, with filters wrapped onto several rows"></td>
+  </tr>
+  <tr>
+    <td align="center">Desktop: search, filters and listings</td>
+    <td align="center">Phone width (390&nbsp;px)</td>
+  </tr>
+</table>
+
 ## Features (implemented and tested)
 
 - **Report** a lost or found item with title, description, category, location and date. Input is validated: fixed categories and locations, no future dates, length limits.
