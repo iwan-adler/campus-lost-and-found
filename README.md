@@ -69,7 +69,7 @@ flowchart LR
 Requires Python 3.12+ (developed on Python 3.14).
 
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/iwan-adler/campus-lost-and-found.git
 cd campus-lost-and-found
 python -m venv .venv
 ```
