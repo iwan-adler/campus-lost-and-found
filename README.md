@@ -1,5 +1,7 @@
 # Campus Lost & Found
 
+[![tests](https://github.com/iwan-adler/campus-lost-and-found/actions/workflows/tests.yml/badge.svg)](https://github.com/iwan-adler/campus-lost-and-found/actions/workflows/tests.yml)
+
 A small web app where students report lost or found belongings, search the listings, and claim items. The finder verifies each claim before anything is handed over.
 
 ## Why
